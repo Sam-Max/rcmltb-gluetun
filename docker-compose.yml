@@ -14,7 +14,8 @@ services:
       - OPENVPN_PASSWORD=
       - SERVER_COUNTRIES=                # See https://github.com/qdm12/gluetun/wiki 
     ports:
-      - "80:80"                         
+      - "80:80"
+      - "8080:8080"
     restart: always
   rcmltb:
     build: .
