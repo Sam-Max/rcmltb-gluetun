@@ -9,10 +9,18 @@ services:
       - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=            # See https://github.com/qdm12/gluetun/wiki
-      - VPN_TYPE=openvpn
+      - VPN_TYPE=openvpn                 # openvpn or wireguard  
+      # OpenVPN:
       - OPENVPN_USER=             
       - OPENVPN_PASSWORD=
       - SERVER_COUNTRIES=                # See https://github.com/qdm12/gluetun/wiki 
+      # Wireguard:
+      - WIREGUARD_PRIVATE_KEY=
+      - WIREGUARD_ADDRESS=
+      # Timezone for accurate log times
+      - TZ=
+      # Server list updater. 
+      - UPDATER_PERIOD=24h
     ports:
       - "80:80"
       - "8080:8080"
