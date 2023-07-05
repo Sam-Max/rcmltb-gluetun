@@ -18,7 +18,7 @@ services:
       - WIREGUARD_PRIVATE_KEY=
       - WIREGUARD_ADDRESS=
       # Timezone for accurate log times
-      - TZ=
+      - TZ=                              # See https://github.com/qdm12/gluetun/wiki 
       # Server list updater. 
       - UPDATER_PERIOD=24h
     ports:
@@ -27,9 +27,6 @@ services:
     restart: always
   rcmltb:
     build: .
-    network_mode: "service:gluetun"
-    depends_on:
-      gluetun:
-        condition: service_started 
+    network_mode: "service:gluetun" 
     command: bash start.sh
     restart: always
